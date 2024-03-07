@@ -8,13 +8,13 @@ doIt (a:b)
 
 getIndex::Int -> [Int] -> Int
 getIndex _  [] = 0
-getIndex n (a:b)
-         | notElem n (a:b) /= 0 = notElem n
-         | otherwise =  getIndex (b)
+getIndex n (a:b:c)
+         | notElem n (a:b:c) /= False = n
+         | otherwise =  getIndex b c
 
 
 allnow::[Int] -> Int
 allnow [] = 0
 allnow (a:b)
-    | getIndex a ( a:b) `mod` 2 == 0 && a `mod` 2 == 0 = a + allnow b
+    | getIndex a (b) `mod` 2 == 0 && a `mod` 2 == 0 = a + allnow b
     | otherwise = allnow b
