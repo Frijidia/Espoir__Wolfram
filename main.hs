@@ -9,7 +9,7 @@ doIt (a:b)
 getIndex::Int -> [Int] -> Int
 getIndex _  [] = 0
 getIndex n (a:b:c)
-         | notElem n (a:b:c) /= False = n
+         | notElem n (a:b:c) /= True = n
          | otherwise =  getIndex b c
 
 
